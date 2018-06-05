@@ -8,3 +8,25 @@
 //
 //
 // Your code here
+
+class Oven {
+  constructor (time) {
+    this._time = time
+  }
+
+  get time() {
+    
+  }
+}
+
+class Coklat extends Oven {
+
+}
+
+class Kacang extends Oven {
+
+}
+
+class Keju extends Oven {
+
+}
