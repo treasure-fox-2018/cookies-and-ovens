@@ -10,36 +10,39 @@
 // Your code here
 
 class Cookie {
-  constructor(name){
+  constructor(name,cookTime){
     this.name = name;
+    this.cookTime = cookTime;
     this.bakingStatus = 'raw';
   }
 }
 
 class ChocolateChipCookie extends Cookie{
   constructor(name){
-    super(name);
-    this.cookTime = 20;
+    super(name,20);
+    // this.cookTime = 20;
   }
 }
 
 class PeanutButterCookie extends Cookie{
   constructor(name){
-    super(name);
-    this.cookTime = 25;
+    super(name,25);
+    // this.cookTime = 25;
     // console.log(`An oven has been created`)
   }
 }
 class CoconutCookie extends Cookie{
   constructor(name){
-    super(name);
-    this.cookTime = 30;
+    super(name,30);
+    // this.cookTime = 30;
   }
 }
 
 class Oven{
   constructor(){
     this.tray = [];
+    console.log(`An oven has been created !\nlets put some cookies to bake!`)
+    console.log(`.............................................................`)
   }
   insertCookie(cookie){
     this.tray.push(cookie)
