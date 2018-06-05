@@ -35,12 +35,12 @@ class Oven {
     
     console.log(`It's time to ${this._cookiesDetail._nameCookies}!!`)
     console.log("------------------------------------------------------------");
-    while (time <= this._cookiesDetail._cookingTime) {
+    while (time <= timeForCooker) {
       if (time % 5 === 0 && time > 0 && time <= this._cookiesDetail._cookingTime - 10) {
         console.log(`${this._cookiesDetail._nameCookies}, menit ke ${time} : mentah`)
         indexCake++
       }
-      else if (time % 5 === 0 && time <= this._cookiesDetail._cookingTime - 5) {
+      else if (time % 5 === 0 && time > this._cookiesDetail._cookingTime - 10 &&time <= this._cookiesDetail._cookingTime - 5) {
         console.log(`${this._cookiesDetail._nameCookies}, menit ke ${time} : setengah mateng bro`)
         indexCake++;
       }
@@ -67,6 +67,6 @@ var arrCook = [nutCake, chocolateCake, cheeseCake];
 
 for (var i = 0; i <= arrCook.length - 1; i++) {
   var ovenTime = new Oven (arrCook[i]);
-  console.log(ovenTime.bake(45))
+  console.log(ovenTime.bake(35))
 }
 
