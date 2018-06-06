@@ -14,8 +14,8 @@ class Oven {
     this._cakeState = 'raw';
     this._cake = cake;
   }
-  bake(){
-    while (this._cakeState !== 'burnt') {
+  bake(time){
+    while (this._initialTime <= time) {
       if (this._initialTime === this._cake._bakeTime) {
         this._cakeState = 'baked'
       }else if (this._initialTime > this._cake._bakeTime) {
@@ -47,10 +47,10 @@ class CheeseCake{
 
 let kue = new ChocolateCake()
 let panggang = new Oven(kue);
-panggang.bake()
+panggang.bake(45)
 let kueKacang = new NutCake()
 let masak = new Oven(kueKacang);
-masak.bake()
+masak.bake(30)
 let kueKeju = new CheeseCake()
 let panggangKeju = new Oven(kueKeju)
-panggangKeju.bake()
+panggangKeju.bake(100)
