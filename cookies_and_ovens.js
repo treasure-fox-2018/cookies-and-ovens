@@ -1,94 +1,56 @@
 'use strict'
 
 class Cake {
-    constructor() {
-        this.name = '';
-        this.status = 'mentah';
+    constructor(name, minutes, status) {
+        this.name = name
+        this.bakeTime = minutes
+        this.nowBaking = 0
+        this.status = status
+    }
+
+    bake() {
+        for(let i = 1; i <= this.bakeTime; i+=5) {
+            this.nowBaking += 5;
+            if((this.nowBaking + 5) == this.bakeTime) {
+                this.status = 'hampir matang';
+                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
+            } else if(this.nowBaking < this.bakeTime) {
+                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
+            } else if(this.nowBaking == this.bakeTime) {
+                this.status = 'matang'
+                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
+            } else if(this.nowBaking > this.bakeTime){
+                this.status = 'hangus'
+                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
+            }
+        }
     }
 }
 
 class ChocolateCake extends Cake {
-    constructor() {
-        super();
-        this.name = 'chocolate cake';
-        this.bakeTime = 20;
-        this.nowBaking = 0;
-    }
-    bake() {
-        for(let i = 1; i <= 5; i++) {
-            this.nowBaking += 5;
-            if((this.nowBaking + 5) == this.bakeTime) {
-                this.status = 'hampir matang';
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking < this.bakeTime) {
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking == this.bakeTime) {
-                this.status = 'matang'
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking > this.bakeTime){
-                this.status = 'hangus'
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            }
-        }
-    }
+    constructor(name, minutes, status) {
+        super(name, minutes, status)
+
+    }   
 }
 
 class PeanutCake extends Cake {
-    constructor() {
-        super();
-        this.name = 'peanut cake'
-        this.bakeTime = 30;
-        this.nowBaking = 0;
-    }
-    bake() {
-        for(let i = 1; i <= 7; i++) {
-            this.nowBaking += 5;
-            if((this.nowBaking + 5) == this.bakeTime) {
-                this.status = 'hampir matang';
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking < this.bakeTime) {
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking == this.bakeTime) {
-                this.status = 'matang'
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking > this.bakeTime){
-                this.status = 'hangus'
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            }
-        }
-        
+    constructor(name, minutes, status) {
+        super(name, minutes, status)
+
     }
 }
 
 class CheeseCake extends Cake {
-    constructor() {
-        super();
-        this.name = 'cheese cake';
-        this.bakeTime = 35;
-        this.nowBaking = 0;
-    }
-    bake() {
-        for(let i = 1; i <= 8; i++) {
-            this.nowBaking += 5;
-            if((this.nowBaking + 5) == this.bakeTime) {
-                this.status = 'hampir matang';
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking < this.bakeTime) {
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking == this.bakeTime) {
-                this.status = 'matang'
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            } else if(this.nowBaking > this.bakeTime){
-                this.status = 'hangus'
-                console.log(`${this.name}, menit ke ${this.nowBaking} : ${this.status}`)
-            }
-        }
+    constructor(name, minutes, status) {
+        super(name, minutes, status)
+        
     }
 }
 
-var chocolate = new ChocolateCake();
-var peanut = new PeanutCake();
-var cheese = new CheeseCake();
+var chocolate = new ChocolateCake('Chocolate Cake', 20, 'mentah');
+var peanut = new PeanutCake('Peanut Cake', 30, 'mentah');
+var cheese = new CheeseCake('Chese Cake', 35, 'mentah');
 
 chocolate.bake();
 console.log(`----------------------`);
