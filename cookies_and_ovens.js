@@ -8,83 +8,51 @@
 //
 //
 // Your code here
-class Cookies {
-    constructor(){
-        this._name = ''
-        this._cookingTime = 0
-        this._maxBakedOven = 18
-        this._condition = 'mentah'
-        this.halfBaked = 6 
+class Cookie {
+    constructor(name, cookTime) {
+        this.name = name;
+        this.cookTime = cookTime;
     }
-    get name() {
-        return this.name
+}
+class Chocolate extends Cookie{
+    constructor(name, cookTime) {
+        super(name, cookTime)
     }
-    get cookingTime() {
-        return this._cookingTime
+}
+class Peanut extends Cookie {
+    constructor(name, cookTime) {
+        super(name, cookTime)
     }
-    get bakedOven() {
-        return this._bakedOven
+}
+class Cheese extends Cookie {
+    constructor(name, cookTime) {
+        super(name, cookTime)
     }
-    get condition() {
-        return tihs._condition
-    }
+}
+class Oven {
+    static startCook(cookie, timeToCook) {
 
-    oven(){
-        this._cookingTime += 3
+        let status = ['mentah', 'setengah Matang', 'Matang', 'Gosong']
 
-        if(this._cookingTime <= 3 ){
-            this._condition = 'Mentah'
-        } else if (this._cookingTime <= this.halfBaked){
-            this._condition = 'Setengah Mateng'
-        } else if (this._cookingTime === this._bakedOven) {
-            this._condition = 'Mateng'
-        } else {
-            this._condition = 'gosong'
+        for (let i = 5; i <= timeToCook; i += 5) {
+            if (i < cookie.cookTime - 5) {
+                console.log(`${cookie.name} menit ke ${i} : ${status[0]}`)
+            } else if (i == cookie.cookTime - 5) {
+                console.log(`${cookie.name} menit ke ${i} : ${status[1]}`)
+            } else if (i == cookie.cookTime) {
+                console.log(`${cookie.name} menit ke ${i} : ${status[2]}`)
+            } else {
+                console.log(`${cookie.name} menit ke ${i} : ${status[3]}`)
+            }
         }
     }
-
-    
 }
 
-class Chocholate extends Cookies {
-    constructor(){
-        super()
-        this._name = 'Chocholate Cookies'
-        this._maxBakedOven = 12
-    }
-}
-class Peanut extends Cookies {
-    constructor(){
-        super()
-        this._name = 'Peanut Cookies'
-        this._maxBakedOven = 17
-    }
-}
-class Cheese extends Cookies {
-    constructor(){
-        super()
-        this._name = 'Cheese Cookies'
-        this._maxBakedOven = 15
-    }
-}
-
-let Cookies = new Cookies()
-
-//   do {
-//     Cookies.oven();
-//     console.log(`[Year ${fruitTree.age} Report] Height = ${fruitTree.height} | Fruits harvested = ${fruitTree.harvested}`)
-//    } while (fruitTree.healthStatus != false)
-
-// module.export ={ 
-//   fruit : Fruit,
-//   tree : FruitTree
-// }
+let chocolate = new Chocolate('ChocoCookies', 20);
+let cheese = new Cheese('Cheeseookies', 30);
+let peanut = new Peanut('PeanutCookies', 35);
 
 
-
-for (let i = 0; i < 10; i++) {
-    
-    cake.cooking()
-    
-    console.log(cake._name + ', menit ke ' + cake._cookingTime + ' : ' + cake._status )
-}
+Oven.startCook(chocolate, 20);
+Oven.startCook(cheese, 30);
+Oven.startCook(peanut, 35);
