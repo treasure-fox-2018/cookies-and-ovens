@@ -48,27 +48,25 @@ class Oven{
     }
     
     bake(time){
-        var status = ['mentah', 'mentah', 'mentah', 'hampir matang', 'matang', 'hangus']
+        var status = ['mentah','mentah', 'hampir matang', 'matang', 'hangus']
         var countStatus = 0
         var arrKue = this.kue;
-        for(let a = 0; a < time; a++ ){
-            if(a%5===0){
-                countStatus +=1;
+        for(let a = 0; a <= time; a++ ){
+            if(a%5===0 && a > 0 ){
                 var statusKue = status[countStatus];
-                
+                let kueInOven = []
                 for(let b = 0; b < arrKue.length; b++){
                     let namaKue = arrKue[b]._name;
                     let cookingTime = arrKue[b]._time;
-                    if(a > 0 && a < cookingTime){
-                        if( a >= cookingTime){
-                            statusKue = 'hangus';
+                    
+                        if(a <= cookingTime ){
+                           kueInOven.push(`${namaKue} : ${statusKue}`)
                         }
-                        console.log(a, namaKue, statusKue);
-                    }
                 }
+                console.log('menit ke ',a,' : ', kueInOven.join(' ==|== '));
+                countStatus +=1;
             }
-        } 
-        
+        }    
     }
 }
 
@@ -82,10 +80,10 @@ console.log(kueCoklat);
 console.log(kueKacang);
 console.log(kueKeju);
 
-//oven.insert(kueCoklat)
+oven.insert(kueCoklat)
 oven.insert(kueKacang)
 oven.insert(kueKeju)
-console.log(oven);
-oven.bake(35);
+//console.log(oven);
+oven.bake(25);
 
 
