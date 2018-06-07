@@ -18,6 +18,8 @@ class Oven {
     while (this._initialTime <= time) {
       if (this._initialTime === this._cake._bakeTime) {
         this._cakeState = 'baked'
+      }else if (this._initialTime === this._cake._bakeTime - 5) {
+        this._cakeState = 'almost baked'
       }else if (this._initialTime > this._cake._bakeTime) {
         this._cakeState = 'burnt'
       }
